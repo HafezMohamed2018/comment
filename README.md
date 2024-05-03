@@ -17,7 +17,7 @@ To build the application, follow these steps:
 Clone the repository to your local machine:
 bash
 Copy code
-git clone https://github.com/your_username/comments-service.git
+git clone https://github.com/HafezMohamed2018/comment.git
 Navigate to the project directory:
 bash
 Copy code
