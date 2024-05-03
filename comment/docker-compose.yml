@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  comments-service:
+    build: ./comment
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_PROFILES_ACTIVE: dev
+
+  database:
+    image: "h2database/h2:latest"
+    ports:
+      - "1521:1521"
+    volumes:
+      - ./data:/data
+    environment:
+      - H2_CONSOLE_ENABLED=true
+      - H2_CONSOLE_PORT=8082
+    command: ["-ifExists"]
